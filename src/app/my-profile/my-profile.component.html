@@ -1,0 +1,16 @@
+<div class="main-body">
+    <div>
+        <h1>My Profile</h1>
+    </div>
+<mat-card>
+    <mat-card-content>
+      <p><strong>First Name: </strong> {{ user.firstName }}</p>
+      <p><strong>Last Name: </strong> {{ user.lastName }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Password:</strong> {{ user.password }}</p>
+      <p><strong>Address:</strong> {{ user.address }}</p>
+      <p><strong>Phone Number:</strong> {{ user.phoneNo }}</p>
+    </mat-card-content>
+  </mat-card>
+  <button mat-raised-button class="btn-edit" (click)="openEditForm(user)">EDIT PROFILE</button>
+  </div>

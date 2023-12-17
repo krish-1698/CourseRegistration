@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+    <span>Crud Application</span>
+    <span class="example-spacer"></span>
+    
+    <ng-container *ngIf="!isLoggedIn">
+        <button mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</button>
+        <button mat-button (click)="login()">
+          <mat-icon>power_settings_new</mat-icon> Login
+        </button>
+    </ng-container>    
+
+    <!-- For Admin Dashboard -->
+    <ng-container *ngIf="isAdmin && isLoggedIn">
+      <button mat-button routerLink="/user" routerLinkActive="active">Students</button>
+      <button mat-button routerLink="/course" routerLinkActive="active">Courses</button>
+      <button mat-button routerLink="/schedule" routerLinkActive="active">Schedule</button>
+      <button mat-button (click)="logout()">
+        <mat-icon>power_settings_new</mat-icon> Logout
+      </button>
+    </ng-container>
+  
+    <!-- For Student Dashboard -->
+    <ng-container *ngIf="!isAdmin && isLoggedIn">
+      <button mat-button routerLink="/myProfile" routerLinkActive="active">
+        <mat-icon>account_circle</mat-icon> My Profile
+      </button>
+      <button mat-button routerLink="/course" routerLinkActive="active">Courses</button>
+      <button mat-button (click)="logout()" >
+        <mat-icon>power_settings_new</mat-icon> Logout
+      </button>
+    </ng-container>
+  </mat-toolbar>
+  

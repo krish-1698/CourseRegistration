@@ -1,0 +1,54 @@
+<div class="main-body">
+    <button mat-raised-button color="primary" class="btn-add" (click)="openAddEditUserForm()">ADD SCHEDULE</button>
+    <mat-form-field>
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search by First Name" #input>
+    </mat-form-field>
+  
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="course">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Course Title</th>
+          <td mat-cell *matCellDef="let row"> {{row.course}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="day">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Day </th>
+          <td mat-cell *matCellDef="let row"> {{row.day}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="time">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Time </th>
+          <td mat-cell *matCellDef="let row"> {{row.time}}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="instructor">
+          <th mat-header-cell *matHeaderCellDef> Instructor </th>
+          <td mat-cell *matCellDef="let row"> {{row.instructor}}</td>
+        </ng-container>
+    
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let row">
+            <button mat-icon-button color="primary" (click)="openEditForm(row)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteSchedule(row.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="7">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+  
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    </div>
+  </div>
+  
