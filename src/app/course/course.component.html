@@ -40,10 +40,10 @@
               <mat-icon>delete</mat-icon>
             </button>
         
-            <button mat-icon-button color="primary" *ngIf="!isAdmin" (click)="viewCourse(row)">
+            <button mat-icon-button color="primary" *ngIf="!isAdmin" (click)="viewCourse(row)" matTooltip="View">
               <mat-icon>visibility</mat-icon>
             </button>
-            <button mat-icon-button color="warn" *ngIf="!isAdmin" (click)="enrolCourse(row.id)">
+            <button mat-icon-button color="warn" *ngIf="!isAdmin" (click)="enrolCourse(row.id)" matTooltip="Enrol">
               <mat-icon>group_add</mat-icon>
             </button>
           </td>

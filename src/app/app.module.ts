@@ -32,6 +32,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { ScheduleAddEditComponent } from './schedule/schedule-add-edit/schedule-add-edit.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { FooterComponent } from './footer/footer.component';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -77,7 +78,8 @@ const routes: Routes = [
     MatSortModule,
     MatSnackBarModule,
     MatCardModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent],
