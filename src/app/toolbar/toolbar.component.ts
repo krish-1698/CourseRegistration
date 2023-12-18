@@ -18,7 +18,7 @@ export class ToolbarComponent {
   }
 
   login(){
-    this.isAdmin = true; //Change this for admin and student accordingly
+    this.isAdmin = false; //Change this for admin and student accordingly
     localStorage.setItem('isAdmin', this.isAdmin.toString());
     this.isLoggedIn = true;
     if(this.isAdmin){

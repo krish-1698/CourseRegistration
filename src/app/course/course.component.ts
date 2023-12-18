@@ -6,6 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CoreService } from '../core/core.service';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { ScheduleAddEditComponent } from '../schedule/schedule-add-edit/schedule-add-edit.component';
 
 @Component({
   selector: 'app-course',
@@ -154,8 +155,18 @@ export class CourseComponent implements AfterViewInit{
     });
   }
 
-  viewCourse(data:any){
+  openScheduleForm(data:any){
+    const dialogRef = this._dialog.open(ScheduleAddEditComponent, {
+      data,
+    });
 
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getCourseList();
+        }
+      },
+    });
   }
 
   enrolCourse(id:number){

@@ -141,6 +141,7 @@ export class ScheduleComponent implements AfterViewInit{
       }
     });
   }
+  
   deleteSchedule(id: number) {
     this._coreService.openSnackBar('Schedule deleted!', 'done');
   }

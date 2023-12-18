@@ -23,3 +23,11 @@
     float: right;
   }
   
+  .btns{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .center-text{
+    text-align: center;
+  }
