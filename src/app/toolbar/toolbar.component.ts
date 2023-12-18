@@ -13,8 +13,13 @@ export class ToolbarComponent {
   constructor(private router: Router){
   }
 
+  ngOnInit(): void {
+    localStorage.setItem('isAdmin', this.isAdmin.toString());
+  }
+
   login(){
-    this.isAdmin = true; //Change this for admin and student accordingly
+    this.isAdmin = false; //Change this for admin and student accordingly
+    localStorage.setItem('isAdmin', this.isAdmin.toString());
     this.isLoggedIn = true;
     if(this.isAdmin){
       this.router.navigate(['/user']);

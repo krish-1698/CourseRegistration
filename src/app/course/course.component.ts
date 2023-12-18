@@ -14,6 +14,7 @@ import { CoreService } from '../core/core.service';
 export class CourseComponent implements AfterViewInit{
 
 
+  isAdmin:boolean = false;
   courseData = [
     {
       courseCode: 'CS101',
@@ -86,6 +87,7 @@ export class CourseComponent implements AfterViewInit{
 
   ngOnInit(): void {
     this.getCourseList();
+   this.isAdmin =  (localStorage.getItem('isAdmin') === 'true' || false)
   }
 
   openAddEditEmpForm() {
@@ -137,4 +139,13 @@ export class CourseComponent implements AfterViewInit{
       },
     });
   }
+
+  viewCourse(data:any){
+
+  }
+
+  enrolCourse(id:number){
+
+  }
+
 }
