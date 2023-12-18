@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CoreService } from '../core/core.service';
 import { ScheduleAddEditComponent } from './schedule-add-edit/schedule-add-edit.component';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-schedule',
@@ -130,8 +131,18 @@ export class ScheduleComponent implements AfterViewInit{
     }
   }
 
+  deleteScheduleConfirmation(rowId: number): void {
+    const dialogRef = this._dialog.open(ConfirmationDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        // User confirmed, perform the delete action here
+        this.deleteSchedule(rowId);
+      }
+    });
+  }
   deleteSchedule(id: number) {
-   console.log('working');
+    this._coreService.openSnackBar('Schedule deleted!', 'done');
   }
 
   openEditForm(data: any) {

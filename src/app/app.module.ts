@@ -33,6 +33,7 @@ import { ScheduleAddEditComponent } from './schedule/schedule-add-edit/schedule-
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { FooterComponent } from './footer/footer.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -55,6 +56,7 @@ const routes: Routes = [
     ScheduleComponent,
     ScheduleAddEditComponent,
     FooterComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CoreService } from '../core/core.service';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-course',
@@ -121,6 +122,19 @@ export class CourseComponent implements AfterViewInit{
       this.dataSource.paginator.firstPage();
     }
   }
+
+
+  deleteCourseConfirmation(rowId: number): void {
+    const dialogRef = this._dialog.open(ConfirmationDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        // User confirmed, perform the delete action here
+        this.deleteCourse(rowId);
+      }
+    });
+  }
+
 
   deleteCourse(id: number) {
         this._coreService.openSnackBar('Course deleted!', 'done');

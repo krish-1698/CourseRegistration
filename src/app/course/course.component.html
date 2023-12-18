@@ -36,7 +36,7 @@
             <button mat-icon-button color="primary" *ngIf="isAdmin" (click)="openEditForm(row)">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button color="warn" *ngIf="isAdmin" (click)="deleteCourse(row.id)">
+            <button mat-icon-button color="warn" *ngIf="isAdmin" (click)="deleteCourseConfirmation(row.id)">
               <mat-icon>delete</mat-icon>
             </button>
         
